@@ -1,2 +1,0 @@
-# Proxy
-School proxy server
