@@ -1,0 +1,119 @@
+:root {
+    --bg: #0a0a0c;
+    --card: #121217;
+    --accent: #3b82f6;
+    --text: #e2e8f0;
+    --border: #27272a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.status-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #71717a;
+    margin-bottom: 30px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #22c55e;
+}
+
+.ping { margin-left: auto; }
+
+.input-section label, .setting-item label {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    color: #52525b;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.input-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+input, select {
+    width: 100%;
+    background: #0f172a;
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    color: #fff;
+    border-radius: 6px;
+    outline: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+input:focus { border-color: var(--accent); }
+
+.settings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.connect-btn {
+    width: 100%;
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+}
+
+.connect-btn:active { transform: scale(0.98); }
+
+.console-output {
+    margin-top: 25px;
+    background: #000;
+    padding: 10px;
+    border-radius: 4px;
+    border-left: 3px solid var(--accent);
+}
+
+code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #4ade80;
+}

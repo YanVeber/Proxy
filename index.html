@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy Control</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="status-bar">
+            <span class="status-dot"></span>
+            <span class="status-text">SYSTEM READY</span>
+            <span class="ping">PING: 24ms</span>
+        </header>
+
+        <main class="proxy-card">
+            <div class="input-section">
+                <label>TARGET ENDPOINT</label>
+                <div class="input-wrapper">
+                    <input type="text" placeholder="https://api.example.com" id="proxy-url">
+                    <div class="focus-border"></div>
+                </div>
+            </div>
+
+            <div class="settings-grid">
+                <div class="setting-item">
+                    <label>METHOD</label>
+                    <select>
+                        <option>GET</option>
+                        <option>POST</option>
+                        <option>PUT</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label>REGION</label>
+                    <select>
+                        <option>AUTO</option>
+                        <option>US-EAST</option>
+                        <option>EU-CENTRAL</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="connect-btn">INITIALIZE CONNECTION</button>
+        </main>
+
+        <footer class="console-output">
+            <code>> Logs: Proxy standby. Waiting for target...</code>
+        </footer>
+    </div>
+</body>
+</html>
