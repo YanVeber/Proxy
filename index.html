@@ -86,9 +86,10 @@
         const btn1 = document.getElementById('button1');
         const btn2 = document.getElementById('button2');
 
-        // Функция для воспроизведения звука
+        // Функция для воспроизведения звука на максимальной громкости плеера
         function playSound() {
-            audio.currentTime = 0; // Перемотка на начало, чтобы звук играл с кликом
+            audio.volume = 1.0; // Максимальная громкость (от 0.0 до 1.0)
+            audio.currentTime = 0; // Перемотка на начало
             audio.play().catch(error => {
                 console.log("Ошибка воспроизведения: ", error);
             });
