@@ -3,52 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proxy Control</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <title>Две кнопки со звуком</title>
+    <style>
+        /* Обнуляем отступы и выстраиваем всё по центру экрана */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1a1a1a; /* Темный фон */
+            font-family: Arial, sans-serif;
+        }
+
+        /* Контейнер для кнопок, чтобы они шли друг под другом и были по центру */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* Расстояние между кнопками */
+            width: 100%;
+            max-width: 500px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Общие стили для обеих кнопок */
+        .sound-btn {
+            width: 100%;
+            height: 150px; /* Высота кнопки */
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            transition: transform 0.1s ease, background-color 0.2s ease;
+            outline: none;
+        }
+
+        /* Первая кнопка — зеленая сверху */
+        .btn-green {
+            background-color: #2ed573;
+        }
+        .btn-green:hover {
+            background-color: #26af5f;
+        }
+
+        /* Вторая кнопка — серая снизу */
+        .btn-gray {
+            background-color: #57606f;
+        }
+        .btn-gray:hover {
+            background-color: #485460;
+        }
+
+        /* Эффект нажатия (уменьшение) для обеих кнопок */
+        .sound-btn:active {
+            transform: scale(0.96);
+        }
+    </style>
 </head>
 <body>
-    <div class="app-container">
-        <header class="status-bar">
-            <span class="status-dot"></span>
-            <span class="status-text">SYSTEM READY</span>
-            <span class="ping">PING: 24ms</span>
-        </header>
 
-        <main class="proxy-card">
-            <div class="input-section">
-                <label>TARGET ENDPOINT</label>
-                <div class="input-wrapper">
-                    <input type="text" placeholder="https://api.example.com" id="proxy-url">
-                    <div class="focus-border"></div>
-                </div>
-            </div>
-
-            <div class="settings-grid">
-                <div class="setting-item">
-                    <label>METHOD</label>
-                    <select>
-                        <option>GET</option>
-                        <option>POST</option>
-                        <option>PUT</option>
-                    </select>
-                </div>
-                <div class="setting-item">
-                    <label>REGION</label>
-                    <select>
-                        <option>AUTO</option>
-                        <option>US-EAST</option>
-                        <option>EU-CENTRAL</option>
-                    </select>
-                </div>
-            </div>
-
-            <button class="connect-btn">INITIALIZE CONNECTION</button>
-        </main>
-
-        <footer class="console-output">
-            <code>> Logs: Proxy standby. Waiting for target...</code>
-        </footer>
+    <!-- Контейнер для идеального выравнивания по центру -->
+    <div class="container">
+        <!-- Первая кнопка (зеленая) -->
+        <button class="sound-btn btn-green" id="button1">кнопка 1</button>
+        
+        <!-- Вторая кнопка (серая) -->
+        <button class="sound-btn btn-gray" id="button2">кнопка 2</button>
     </div>
+
+    <!-- Аудио элемент -->
+    <audio id="audioPlayer" src="sound.mp3" preload="auto"></audio>
+
+    <script>
+        const audio = document.getElementById('audioPlayer');
+        const btn1 = document.getElementById('button1');
+        const btn2 = document.getElementById('button2');
+
+        // Функция для воспроизведения звука
+        function playSound() {
+            audio.currentTime = 0; // Перемотка на начало, чтобы звук играл с кликом
+            audio.play().catch(error => {
+                console.log("Ошибка воспроизведения: ", error);
+            });
+        }
+
+        // Привязываем функцию к обеим кнопкам
+        btn1.addEventListener('click', playSound);
+        btn2.addEventListener('click', playSound);
+    </script>
+
 </body>
 </html>
